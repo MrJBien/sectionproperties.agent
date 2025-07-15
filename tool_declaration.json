@@ -1,0 +1,301 @@
+[
+  {
+    "name": "circular_hollow_section",
+    "description": "Constructs a circular hollow section (CHS).",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "d": { "type": "number", "description": "Outer diameter of the CHS in mm" },
+        "t": { "type": "number", "description": "Thickness of the CHS in mm" },
+        "n": { "type": "integer", "description": "Number of points discretising the inner and outer circles" }
+      },
+      "required": ["d", "t", "n"]
+    }
+  },
+  {
+    "name": "elliptical_hollow_section",
+    "description": "Constructs an elliptical hollow section (EHS).",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "d_x": { "type": "number", "description": "Diameter of the ellipse in the x-dimension in mm" },
+        "d_y": { "type": "number", "description": "Diameter of the ellipse in the y-dimension in mm" },
+        "t": { "type": "number", "description": "Thickness of the EHS in mm" },
+        "n": { "type": "integer", "description": "Number of points discretising the inner and outer ellipses" }
+      },
+      "required": ["d_x", "d_y", "t", "n"]
+    }
+  },
+  {
+    "name": "rectangular_hollow_section",
+    "description": "Constructs a rectangular hollow section (RHS).",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "d": { "type": "number", "description": "Depth of the RHS in mm" },
+        "b": { "type": "number", "description": "Width of the RHS in mm" },
+        "t": { "type": "number", "description": "Thickness of the RHS in mm" },
+        "r_out": { "type": "number", "description": "Outer radius of the RHS in mm" },
+        "n_r": { "type": "integer", "description": "Number of points discretising the inner and outer radii" },
+        "r_in": { "type": "number", "description": "Inner radius of the RHS (optional) in mm" }
+      },
+      "required": ["d", "b", "t", "r_out", "n_r"]
+    }
+  },
+  {
+    "name": "polygon_hollow_section",
+    "description": "Constructs a regular hollow polygon section.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "d": { "type": "number", "description": "Pitch circle diameter of the outer bounding polygon in mm" },
+        "t": { "type": "number", "description": "Thickness of the polygon section wall in mm" },
+        "n_sides": { "type": "integer", "description": "Number of sides of the polygon" },
+        "r_in": { "type": "number", "description": "Inner radius of the polygon corners (optional) in mm" },
+        "n_r": { "type": "integer", "description": "Number of points discretising the inner and outer radii (optional)" },
+        "rot": { "type": "number", "description": "Initial counterclockwise rotation in degrees (optional)" }
+      },
+      "required": ["d", "t", "n_sides"]
+    }
+  },
+  {
+    "name": "i_section",
+    "description": "Constructs an I section or H section or double-T section.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "d": { "type": "number", "description": "Depth of the I section in mm" },
+        "b": { "type": "number", "description": "Width of the I section in mm" },
+        "t_f": { "type": "number", "description": "Flange thickness of the I section in mm" },
+        "t_w": { "type": "number", "description": "Web thickness of the I section in mm" },
+        "r": { "type": "number", "description": "Root radius of the I section in mm" },
+        "n_r": { "type": "integer", "description": "Number of points discretising the root radius" }
+      },
+      "required": ["d", "b", "t_f", "t_w", "r", "n_r"]
+    }
+  },
+  {
+    "name": "mono_i_section",
+    "description": "Constructs a monosymmetric I section or H section or double-T section.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "d": { "type": "number", "description": "Depth of the I section in mm" },
+        "b_t": { "type": "number", "description": "Top flange width in mm" },
+        "b_b": { "type": "number", "description": "Bottom flange width in mm" },
+        "t_ft": { "type": "number", "description": "Top flange thickness in mm" },
+        "t_fb": { "type": "number", "description": "Bottom flange thickness in mm" },
+        "t_w": { "type": "number", "description": "Web thickness in mm" },
+        "r": { "type": "number", "description": "Root radius in mm" },
+        "n_r": { "type": "integer", "description": "Number of points discretising the root radius" }
+      },
+      "required": ["d", "b_t", "b_b", "t_ft", "t_fb", "t_w", "r", "n_r"]
+    }
+  },
+  {
+    "name": "tapered_flange_i_section",
+    "description": "Constructs a tapered flange I section or H section or double-T section..",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "d": { "type": "number", "description": "Depth of the tapered flange I section in mm" },
+        "b": { "type": "number", "description": "Width of the tapered flange I section in mm" },
+        "t_f": { "type": "number", "description": "Mid-flange thickness in mm" },
+        "t_w": { "type": "number", "description": "Web thickness in mm" },
+        "r_r": { "type": "number", "description": "Root radius in mm" },
+        "r_f": { "type": "number", "description": "Flange radius in mm" },
+        "alpha": { "type": "number", "description": "Flange angle in degrees" },
+        "n_r": { "type": "integer", "description": "Number of points discretising the radii" }
+      },
+      "required": ["d", "b", "t_f", "t_w", "r_r", "r_f", "alpha", "n_r"]
+    }
+  },
+  {
+    "name": "channel_section",
+    "description": "Constructs a channel section or U-section with parallel flanges (PFC) .",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "d": { "type": "number", "description": "Depth of the PFC section in mm" },
+        "b": { "type": "number", "description": "Width of the PFC section in mm" },
+        "t_f": { "type": "number", "description": "Flange thickness in mm" },
+        "t_w": { "type": "number", "description": "Web thickness in mm" },
+        "r": { "type": "number", "description": "Root radius in mm" },
+        "n_r": { "type": "integer", "description": "Number of points discretising the root radius" }
+      },
+      "required": ["d", "b", "t_f", "t_w", "r", "n_r"]
+    }
+  },
+  {
+    "name": "tapered_flange_channel",
+    "description": "Constructs a channel section or U-section with tapered flanges.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "d": { "type": "number", "description": "Depth of the tapered flange channel section in mm" },
+        "b": { "type": "number", "description": "Width of the tapered flange channel section in mm" },
+        "t_f": { "type": "number", "description": "Mid-flange thickness in mm" },
+        "t_w": { "type": "number", "description": "Web thickness in mm" },
+        "r_r": { "type": "number", "description": "Root radius in mm" },
+        "r_f": { "type": "number", "description": "Flange radius in mm" },
+        "alpha": { "type": "number", "description": "Flange angle in degrees" },
+        "n_r": { "type": "integer", "description": "Number of points discretising the radii" }
+      },
+      "required": ["d", "b", "t_f", "t_w", "r_r", "r_f", "alpha", "n_r"]
+    }
+  },
+  {
+    "name": "tee_section",
+    "description": "Constructs a tee section.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "d": { "type": "number", "description": "Depth of the tee section in mm" },
+        "b": { "type": "number", "description": "Width of the tee section in mm" },
+        "t_f": { "type": "number", "description": "Flange thickness in mm" },
+        "t_w": { "type": "number", "description": "Web thickness in mm" },
+        "r": { "type": "number", "description": "Root radius in mm" },
+        "n_r": { "type": "integer", "description": "Number of points discretising the root radius" }
+      },
+      "required": ["d", "b", "t_f", "t_w", "r", "n_r"]
+    }
+  },
+  {
+    "name": "angle_section",
+    "description": "Constructs an angle section or L-section.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "d": { "type": "number", "description": "Depth of the angle section in mm" },
+        "b": { "type": "number", "description": "Width of the angle section in mm" },
+        "t": { "type": "number", "description": "Thickness of the angle section in mm" },
+        "r_r": { "type": "number", "description": "Root radius in mm" },
+        "r_t": { "type": "number", "description": "Toe radius in mm" },
+        "n_r": { "type": "integer", "description": "Number of points discretising the radii" }
+      },
+      "required": ["d", "b", "t", "r_r", "r_t", "n_r"]
+    }
+  },
+  {
+    "name": "cee_section",
+    "description": "Constructs a cee or C section.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "d": { "type": "number", "description": "Depth of the cee section in mm" },
+        "b": { "type": "number", "description": "Width of the cee section in mm" },
+        "l": { "type": "number", "description": "Lip of the cee section in mm" },
+        "t": { "type": "number", "description": "Thickness of the cee section in mm" },
+        "r_out": { "type": "number", "description": "Outer radius of the cee section in mm" },
+        "n_r": { "type": "integer", "description": "Number of points discretising the outer radius" }
+      },
+      "required": ["d", "b", "l", "t", "r_out", "n_r"]
+    }
+  },
+  {
+    "name": "zed_section",
+    "description": "Constructs a zed or Z section.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "d": { "type": "number", "description": "Depth of the zed section in mm" },
+        "b_l": { "type": "number", "description": "Left flange width in mm" },
+        "b_r": { "type": "number", "description": "Right flange width in mm" },
+        "l": { "type": "number", "description": "Lip of the zed section in mm" },
+        "t": { "type": "number", "description": "Thickness of the zed section in mm" },
+        "r_out": { "type": "number", "description": "Outer radius of the zed section in mm" },
+        "n_r": { "type": "integer", "description": "Number of points discretising the outer radius" }
+      },
+      "required": ["d", "b_l", "b_r", "l", "t", "r_out", "n_r"]
+    }
+  },
+  {
+    "name": "box_girder_section",
+    "description": "Constructs a box girder section.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "d": { "type": "number", "description": "Depth of the box girder section in mm" },
+        "b_t": { "type": "number", "description": "Top width in mm" },
+        "b_b": { "type": "number", "description": "Bottom width in mm" },
+        "t_ft": { "type": "number", "description": "Top flange thickness in mm" },
+        "t_fb": { "type": "number", "description": "Bottom flange thickness in mm" },
+        "t_w": { "type": "number", "description": "Web thickness in mm" }
+      },
+      "required": ["d", "b_t", "b_b", "t_ft", "t_fb", "t_w"]
+    }
+  },
+  {
+    "name": "bulb_section",
+    "description": "Constructs a bulb section.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "d": { "type": "number", "description": "Depth of the section in mm" },
+        "b": { "type": "number", "description": "Bulb width in mm" },
+        "t": { "type": "number", "description": "Web thickness in mm" },
+        "r": { "type": "number", "description": "Bulb radius in mm" },
+        "n_r": { "type": "integer", "description": "Number of points discretising the radius" },
+        "d_b": { "type": "number", "description": "Depth of the bulb (optional)" }
+      },
+      "required": ["d", "b", "t", "r", "n_r"]
+    }
+  },
+  {
+    "name": "calculate_geometric_properties",
+    "description": "Calculates geometric properties of the cross-section and stores them. This includes area, perimeter, mass, first moments of area (section modulus), second moments of area (moment of interia), radii of gyration, principal axis properties, and yield moments.",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  {
+    "name": "calculate_warping_properties",
+    "description": "Calculates all the warping properties of the cross-section and stores them. This includes Torsion constant (J/It), Shear centre, Shear areas, Warping constant (C/Iw) and Monosymmetry constant. The geometric properties must be calculated prior to the calculation of the warping properties.",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  {
+    "name": "calculate_stress",
+    "description": "Calculates the cross-section stress resulting from design actions and returns a :class: {sec.post.stress_post.StressPost} object allowing the post-processing of the stress results. A geometric analysis must be performed prior to performing a stress analysis. Further, if the shear force or torsion is non-zero a warping analysis must also be performed.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "n": { "type": "number", "description": "Axial force in N." },
+        "vx": { "type": "number", "description": "Shear force acting in the x-direction/horizontal direction in N." },
+        "vy": { "type": "number", "description": "Shear force acting in the y-direction/vertical direction in N." },
+        "mxx": { "type": "number", "description": "Bending moment about the centroidal xx-axis/horizontal axis in Nmm." },
+        "myy": { "type": "number", "description": "Bending moment about the centroidal yy-axis/vertical axis in Nmm." },
+        "m11": { "type": "number", "description": "Bending moment about the centroidal 11-axis in Nmm." },
+        "m22": { "type": "number", "description": "Bending moment about the centroidal 22-axis in Nmm." },
+        "mzz": { "type": "number", "description": "Torsion moment about the centroidal zz-axis in Nmm." }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "plot_stress",
+    "description": "Plots filled stress contours over the finite element mesh.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "stress": { "type": "string", "enum": ["zz", "zxy", "vm"], "description": "Type of stress to plot: 'axial stresses' = 'zz' , 'shear stresses' = 'zxy', 'von mises stresses' = 'vm'." }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "GoogleSearch",
+    "description": "Performs a Google online search and returns the results. Please use this tool to find section dimensions for standard steel sections in the web.",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  }
+
+]
