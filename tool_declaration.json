@@ -287,15 +287,5 @@
       },
       "required": []
     }
-  },
-  {
-    "name": "GoogleSearch",
-    "description": "Performs a Google online search and returns the results. Please use this tool to find section dimensions for standard steel sections in the web.",
-    "parameters": {
-      "type": "object",
-      "properties": {},
-      "required": []
-    }
   }
-
 ]
