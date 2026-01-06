@@ -1,6 +1,10 @@
 # Sectionproperties AI Assistant 🤖
 
+<<<<<<< HEAD
 This Streamlit application acts as an intelligent interface for the [sectionproperties](https://sectionproperties.readthedocs.io/) Python library. It leverages Google's Gemini models to generate geometry, mesh sections, calculate structural properties, and visualize stresses through natural language commands.
+=======
+This Streamlit application acts as an intelligent interface for the [sectionproperties](https://sectionproperties.readthedocs.io/) Python library. It leverages Google's Gemini models to generate geometry, mesh sections, calculate structural properties, and visualize stresses through natural language commands. It's the result of first experimentations with toolcalling - it does by no means represent a meaningful or polished programm.
+>>>>>>> 5f7b4a0a1a0187cbb5ef41400f6214fb22a88eae
 
 ## Features
 
