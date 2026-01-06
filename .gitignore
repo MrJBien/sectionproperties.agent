@@ -2,7 +2,7 @@ venv/
 env/
 .venv/
 .env
-main manual.py
+main*manual.py
 main.py
 test.py
 tool_declaration_old.json
