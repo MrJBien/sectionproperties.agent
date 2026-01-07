@@ -4,12 +4,13 @@ import time, json
 from xmlrpc import client
 import numpy as np
 import streamlit as st
-import matplotlib.pyplot as plt
+from matplotlib.figure import Figure
 
 from google import genai
 from google.genai import types
 from google.genai.types import GenerateContentConfig
 
+from sectionproperties.pre import Material
 from sectionproperties.pre.library import circular_hollow_section, elliptical_hollow_section, rectangular_hollow_section, polygon_hollow_section, i_section, mono_i_section, tapered_flange_i_section, channel_section, tapered_flange_channel, tee_section, angle_section, cee_section, zed_section, box_girder_section, bulb_section
 from sectionproperties.analysis import Section
 
@@ -137,19 +138,18 @@ def call_LLM(client, model_id, config, user_prompt, history, tool_calls_log, too
                 try:
                     ele_size = 10
                     geom = globals()[function_call.name](**function_call.args)
-                    
+                    geom.material = Material(name="S235", elastic_modulus=210000, poissons_ratio=0.3, density=7.85e-6, yield_strength=235, color="cyan")
                     geom.create_mesh(mesh_sizes=ele_size)
                     sec = Section(geometry=geom)
                     
-                    # Create a new Figure object explicitly to avoid thread-safety issues with passing global plt
                     fig = Figure(figsize=(4.8, 3.6))
                     ax = fig.subplots()
-                    sec.plot_mesh(materials=False, pause=False, ax=ax)
+                    sec.plot_mesh(materials=True, pause=False, ax=ax)
                     figures.append(fig)
 
                     tool_result = {
                         "status": "success",
-                        "message": f"Geometry of the section generated and meshed successfully. A default element size of {ele_size} mm was used. A plot was generated showing the section mesh.",
+                        "message": f"Geometry of the section generated and meshed successfully. A default element size of {ele_size} mm and Material {geom.material.name} was used. A plot was generated showing the section mesh.",
                         "next_steps_suggestion": "Would you like to evaluate the section properties or perform a stress analysis?",
                     }
                 except Exception as e:

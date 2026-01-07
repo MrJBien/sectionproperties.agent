@@ -1,5 +1,12 @@
-.git
-.venv
+venv/
+env/
+.venv/
 .env
+main*manual.py
+main.py
+test.py
+tool_declaration_old.json
+.git
 __pycache__
 *.pyc
+
