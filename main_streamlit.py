@@ -287,7 +287,7 @@ def main():
 
     # Sidebar for API Key and Privacy Info
     with st.sidebar:
-        st.header("This application is powered by: ")
+        st.header("This application is experimental and was made for exploration. Don't use it for real engineering purposes without validation. It is powered by: ")
         st.subheader("1) Google Generative AI")
         user_api_key = st.text_input("Google API Key", type="password", help="Get your free key at https://aistudio.google.com/")
         
@@ -379,6 +379,26 @@ def main():
         with st.chat_message("assistant", avatar=BOT_AVATAR):
             st.write_stream(stream_data(introduction))
             st.session_state.messages.append({"role": "assistant", "type": "text", "content": introduction})
+
+
+    st.markdown("""
+        <style>
+            [data-testid="stChatInput"] {
+                padding-bottom: 2rem !important;
+            }
+            [data-testid="stChatInput"]::after {
+                content: "LLMs make mistakes, just as we do! Always check if tools were called properly and validate the output!";
+                position: absolute;
+                bottom: 0.5rem;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                font-size: small;
+                color: grey;
+                pointer-events: none;
+            }
+        </style>
+    """, unsafe_allow_html=True)
 
     if user_prompt := st.chat_input("Awaiting input..."):
         st.session_state.messages.append({"role": "user", "type": "text", "content": user_prompt})
